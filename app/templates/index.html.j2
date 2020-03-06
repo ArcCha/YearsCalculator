@@ -1,0 +1,16 @@
+{% extends "base.html.j2" %}
+{% block body %}
+<form action="/" method="post">
+  <div>
+    <label for="data">Enter your calculations: </label>
+    <textarea name="calculations" id="calculations" rows="5" cols="30">{{ calculations }}</textarea>
+  </div>
+  <div>
+    <input type="submit" value="Calculate!">
+  </div>
+</form>
+{% if result %}
+Your result: {{ result.years }} years {{ result.months }} months {{ result.days }} days
+{% endif %}
+{% endblock %}
+
