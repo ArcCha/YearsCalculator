@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, url_for, redirect
 from collections import namedtuple
 from itertools import starmap
+
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -8,6 +9,8 @@ app = Flask(__name__)
 Period = namedtuple('Period', ['years', 'months', 'days'])
 
 # TODO defensiveness
+
+
 def parse(data):
     return starmap(Period, map(str.split, data.splitlines()))
 
@@ -40,4 +43,3 @@ def index():
         return render_template('index.html.j2', calculations=calculations, result=result)
     else:
         print('wrong')
-
